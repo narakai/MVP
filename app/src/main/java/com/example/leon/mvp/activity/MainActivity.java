@@ -1,5 +1,6 @@
 package com.example.leon.mvp.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.Toolbar;
@@ -12,14 +13,17 @@ import android.widget.Toast;
 import com.example.leon.mvp.R;
 import com.example.leon.mvp.entity.BookEntity;
 import com.example.leon.mvp.presenter.impl.BookPresenterImpl;
+import com.example.leon.mvp.ui.customwidget.LoadingDialog;
 import com.example.leon.mvp.view.BookView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends BaseActivity implements BookView{
     private TextView textView;
     private BookPresenterImpl bookPresenter;
     private List<BookEntity> bookEntityList;
+    private LoadingDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,9 @@ public class MainActivity extends BaseActivity implements BookView{
     @Override
     protected void initData() {
         bookPresenter = new BookPresenterImpl(this);
+        loadingDialog = new LoadingDialog(this, false);
+        bookEntityList = new ArrayList<>();
+        getIntentData();
     }
 
     @Override
@@ -78,8 +85,39 @@ public class MainActivity extends BaseActivity implements BookView{
         return super.onOptionsItemSelected(item);
     }
 
+    public void getIntentData() {
+        Intent intent = getIntent();
+        if (intent != null) {
+            Bundle extras = intent.getExtras();
+            if (extras != null) {
+                //do something
+            }
+        }
+    }
+
+
     @Override
-    public void bindBookEntityDetail(List<BookEntity> bookEntityDetail) {
-        bookEntityList = bookEntityDetail;
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void bindJuHeJoke(BookEntity bookEntity) {
+
+    }
+
+    @Override
+    public void showErrorMessage(String error) {
+
+    }
+
+    @Override
+    public void dismissLoading() {
+
+    }
+
+    @Override
+    public void completed() {
+
     }
 }
