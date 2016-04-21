@@ -9,7 +9,7 @@ public interface BookView {
     //    void bindBookEntityDetail(List<BookEntity> bookEntityDetail);
     void showLoading();
 
-    void bindJuHeJoke(BookEntity bookEntity);
+    void bindBookData(BookEntity bookEntity);
 
     void showErrorMessage(String error);
 

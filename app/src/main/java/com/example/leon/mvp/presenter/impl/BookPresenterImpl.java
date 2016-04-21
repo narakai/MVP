@@ -53,7 +53,7 @@ public class BookPresenterImpl implements BookPresenter {
 
                     @Override
                     public void onNext(BookEntity bookEntity) {
-                        bookView.bindJuHeJoke(bookEntity);
+                        bookView.bindBookData(bookEntity);
                     }
                 });
     }
