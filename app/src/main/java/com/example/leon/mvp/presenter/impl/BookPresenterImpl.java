@@ -6,6 +6,8 @@ import com.example.leon.mvp.presenter.BookPresenter;
 import com.example.leon.mvp.service.BookService;
 import com.example.leon.mvp.view.BookView;
 
+import java.util.List;
+
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action0;
@@ -37,7 +39,7 @@ public class BookPresenterImpl implements BookPresenter {
                     }
                 })
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<BookEntity>() {
+                .subscribe(new Subscriber<List<BookEntity>>() {
                     @Override
                     public void onCompleted() {
                         bookView.dismissLoading();
@@ -52,9 +54,11 @@ public class BookPresenterImpl implements BookPresenter {
                     }
 
                     @Override
-                    public void onNext(BookEntity bookEntity) {
-                        bookView.bindBookData(bookEntity);
+                    public void onNext(List<BookEntity> bookEntities) {
+                        bookView.bindBookData(bookEntities);
                     }
+
+
                 });
     }
 }

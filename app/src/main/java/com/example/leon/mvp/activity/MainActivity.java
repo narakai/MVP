@@ -115,11 +115,11 @@ public class MainActivity extends BaseActivity implements BookView{
             mSwipeRefreshLayout.setRefreshing(true);
             mRecyclerView.setAdapter(mBookContentAdapter);
             //dummy data
-            BookEntity bookEntity1 = new BookEntity();
-            bookEntity1.setBookname("test");
-            bookEntity1.setLocalpath("http://120.25.175.139:8001/static/images/full/4eb65b11a77333a779defed9adfe3bb53e4d115a.jpg");
-            mBookEntities.add(bookEntity1);
-            mBookContentAdapter.notifyDataSetChanged();
+//            BookEntity bookEntity1 = new BookEntity();
+//            bookEntity1.setBookname("test");
+//            bookEntity1.setLocalpath("http://120.25.175.139:8001/static/images/full/4eb65b11a77333a779defed9adfe3bb53e4d115a.jpg");
+//            mBookEntities.add(bookEntity1);
+//            mBookContentAdapter.notifyDataSetChanged();
             mBookPresenter.getBookDetail();
         }
     }
@@ -163,10 +163,10 @@ public class MainActivity extends BaseActivity implements BookView{
     }
 
     @Override
-    public void bindBookData(BookEntity bookEntity) {
+    public void bindBookData(List<BookEntity> bookEntities) {
         stopRefresh();
-        if(null != bookEntity){
-            mBookEntities.add(bookEntity);
+        if(null != bookEntities){
+            mBookEntities = bookEntities;
         }
         mBookContentAdapter.notifyDataSetChanged();
     }

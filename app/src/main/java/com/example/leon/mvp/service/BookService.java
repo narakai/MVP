@@ -3,6 +3,8 @@ package com.example.leon.mvp.service;
 import com.example.leon.mvp.app.MyConstance;
 import com.example.leon.mvp.entity.BookEntity;
 
+import java.util.List;
+
 import retrofit2.http.GET;
 import rx.Observable;
 
@@ -20,10 +22,10 @@ public class BookService {
 
     private interface APIFlask{
         @GET("/allbooks")
-        Observable<BookEntity> getBookEntity();
+        Observable<List<BookEntity>> getBookEntity();
     }
 
-    public Observable<BookEntity> getBookContent() {
+    public Observable<List<BookEntity>> getBookContent() {
         return apiFlask.getBookEntity();
     }
 }
