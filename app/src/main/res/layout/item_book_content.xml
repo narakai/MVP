@@ -26,12 +26,12 @@
 
             <ImageView
                 android:id="@+id/iv_item_book_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_item_book_name"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:gravity="left"
-                android:background="@color/common_line" />
+                android:layout_width="35dp"
+                android:layout_height="60dp"
+                android:background="@color/common_line"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
 
             <!--<TextView-->
                 <!--android:id="@+id/tv_item_book_update_time"-->
